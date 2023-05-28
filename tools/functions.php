@@ -46,17 +46,17 @@ function validateDate($POST,$birthdate, $format = 'm-d-Y H:i:s')
     return $d && $d->format($format) == $POST[$birthdate];
 }
 
-function validate_password($POST,$password){
-    if(strlen($POST[$password]) < 12 ) {
+function validate_password($password){
+    if(strlen($password) < 8 ) {
         return false;
     }
-    elseif(!preg_match("#[0-9]+#",$POST[$password])) {
+    elseif(!preg_match("#[0-9]+#",$password)) {
         return false;
     }
-    elseif(!preg_match("#[A-Z]+#",$POST[$password])) {
+    elseif(!preg_match("#[A-Z]+#",$password)) {
         return false;
     }
-    elseif(!preg_match("#[a-z]+#",$POST[$password])) {
+    elseif(!preg_match("#[a-z]+#",$password)) {
         return false;
     }
     return true; 

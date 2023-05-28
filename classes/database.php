@@ -4,7 +4,7 @@ class Database{
     private $host = 'localhost';
     private $username = 'root';
     private $password = 'Uwat09hanz';
-    private $database = 'gms';
+    private $database = 'chat';
     protected $connection;
 
     
