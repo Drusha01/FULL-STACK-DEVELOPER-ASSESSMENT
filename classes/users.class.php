@@ -101,7 +101,7 @@ class users
     }
     function user_email_duplicate($user_email){
         try{
-            $sql = 'SELECT user_id FROM users WHERE  user_email  =:user_email;
+            $sql = 'SELECT user_id FROM users WHERE  user_email  =:user_email AND user_email_verified = true;
             ';
             $query=$this->db->connect()->prepare($sql);
             $query->bindParam(':user_email', $user_email);

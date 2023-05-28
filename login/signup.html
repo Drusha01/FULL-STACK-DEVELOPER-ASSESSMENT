@@ -313,7 +313,6 @@
                         cache: false,
                         timeout: 600000,
                         success: function ( result ) {
-                            console.log(result);
                             if(result==1){
                                 valid = true;
                                 window.location.href = '../account/myaccount.php';
@@ -354,7 +353,7 @@
                     success: function ( result ) {
                         console.log(result);
                         if(result==1){
-                            window.location.href = 'account/myaccount.php';
+                            window.location.href = '../account/myaccount.php';
                         }else{
                            
                         }

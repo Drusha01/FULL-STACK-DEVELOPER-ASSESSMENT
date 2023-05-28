@@ -52,7 +52,7 @@
 					</div>
 					<div class="div-block-141 _1">
 						<div class="form-block-6 w-form">
-							<form id="email-form" name="email-form" data-name="Email Form" class="form-5">
+							<form id="email-form" name="email-form" data-name="Email Form" method="POST" action="login.php" class="form-5">
 								<p class="hero-sub-heading _1">Log In</p>
 								<input
 									type="text"
@@ -76,6 +76,7 @@
 								<div class="div-block-154 w-clearfix">
 									<input
                                         id="login"
+                                        name="submit"
 										type="submit"
 										value="LOGIN"
 										data-wait="Submitting..."
@@ -181,9 +182,64 @@
 		</script>
 
     <script>
-      $('#login').click(()=>{
-        console.log('nice');
-      })
+
+
+        $('#email-form').submit(()=>{
+            var user_details = new FormData();  
+            user_details.append( 'user', $('#Email-Address').val()); 
+            user_details.append( 'password', $('#Password').val());
+            
+            let valid = false; 
+            $.ajax({
+                type: "POST",
+                enctype: 'multipart/form-data',
+                url: "login.php",
+                data: user_details,
+                processData: false,
+                contentType: false,
+                cache: false,
+                timeout: 600000,
+                success: function ( result ) {
+                    console.log(result);
+                    if(result==1){
+                     
+                        window.location.href = '../account/myaccount.php';
+                    }else{
+                        alert('Error signing up');
+                        return false;
+                    }
+                    
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                    alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+                } 
+            });
+            return false;
+
+        })
+
+        $(function() {
+            $.ajax({
+                type: "GET",
+                url: "signed-up.php",
+                processData: false,
+                contentType: false,
+                cache: false,
+                timeout: 600000,
+                success: function ( result ) {
+                    console.log(result);
+                    if(result==1){
+                        window.location.href = '../account/myaccount.php';
+                    }else{
+                        
+                    }
+                    
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                    alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+                } 
+            });
+        });
     </script>
 	</body>
 </html>

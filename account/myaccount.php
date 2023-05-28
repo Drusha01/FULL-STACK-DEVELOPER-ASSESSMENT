@@ -49,6 +49,10 @@
                                         <label class="small mb-1" for="lastname">Last name</label>
                                         <input class="form-control" id="lastname"  id="lastname" type="text" placeholder="Enter your last name" value="">
                                     </div>
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="email" >Email</label>
+                                        <input class="form-control" id="email" type="text" placeholder="Enter your email" value="">
+                                    </div>
                                 </div>
                                 <button class="btn btn-primary" type="button" id="save_user_details">Save changes</button>
                             </form>
@@ -87,6 +91,7 @@ $('#save_user_details').click(()=>{
                 $('#user_name').html(user.user_name);
                 $('#firstname').val(user.user_firstname);
                 $('#lastname').val(user.user_lastname);
+                $('#email').val(user.user_email);
                 $('#profile_img').attr('src','../img/profile/orig/'+user.user_profile);
                 $('#thumbnail').attr('src','../img/profile/resized/'+user.user_profile);
                 alert('Acount details saved')
@@ -112,6 +117,7 @@ $(function() {
             $('#user_name').html(user.user_name);
             $('#firstname').val(user.user_firstname);
             $('#lastname').val(user.user_lastname);
+            $('#email').val(user.user_email);
             $('#profile_img').attr('src','../img/profile/orig/'+user.user_profile);
             $('#thumbnail').attr('src','../img/profile/resized/'+user.user_profile);
         },
