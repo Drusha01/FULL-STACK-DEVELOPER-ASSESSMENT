@@ -25,7 +25,7 @@
                                 $_SESSION['user_name'] = $user_data['user_name'];
                                 $_SESSION['user_firstname'] = $user_data['user_firstname'];
                                 $_SESSION['user_lastname'] = $user_data['user_lastname'];
-                                $_SESSION['user_photo'] = $user_data['user_photo'];
+                                $_SESSION['user_profile'] = $user_data['user_profile'];
                                 header('location:../account/myaccount.php');
                             }else{
                                 $error ='Error sign up';
@@ -46,7 +46,6 @@
         }
     }
 ?>
-
 
 <?php  require_once '../includes/header.php'?>
 

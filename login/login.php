@@ -8,7 +8,6 @@
       require_once '../tools/functions.php';
       if( isset($_POST['signin']) && isset($_POST['username']) && isset($_POST['password']) && validate_password($_POST['password']) ){
           // validate user
-        print_r($_POST);
           if(preg_match('/^[a-zA-Z0-9]{6,}$/',$_POST['username'])) {
             require_once '../classes/users.class.php';
             $userObj = new users(); 
@@ -16,9 +15,9 @@
               if(password_verify($_POST['password'], $user_data['user_password'])){
                 $_SESSION['user_id'] = $user_data['user_id'];
                 $_SESSION['user_name'] = $user_data['user_name'];
-                $_SESSION['user_firstname'] = $$user_data['user_firstname'];
+                $_SESSION['user_firstname'] = $user_data['user_firstname'];
                 $_SESSION['user_lastname'] = $user_data['user_lastname'];
-                $_SESSION['user_photo'] = $user_data['user_photo'];
+                $_SESSION['user_profile'] = $user_data['user_profile'];
                 header('location:../account/myaccount.php');
               }
               

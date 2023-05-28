@@ -47,6 +47,37 @@ class users
         }
     }
 
+    function update_user_details($user_id,$user_firstname,$user_lastname){
+        try{
+            $sql = 'UPDATE users
+            SET user_lastname =:user_firstname, user_lastname =:user_lastname
+            WHERE user_id =:user_id;
+            ';
+            $query=$this->db->connect()->prepare($sql);
+            $query->bindParam(':user_id', $user_id);
+            $query->bindParam(':user_firstname', $user_firstname);
+            $query->bindParam(':user_lastname', $user_lastname);
+            return $query->execute();
+        }catch (PDOException $e){
+            return false;
+        }
+        
+    }
+
+    function update_user_profile_photo($user_id, $user_profile){
+        try{
+            $sql = 'UPDATE users
+            SET user_profile =:user_profile
+            WHERE user_id =:user_id;
+            ';
+            $query=$this->db->connect()->prepare($sql);
+            $query->bindParam(':user_id', $user_id);
+            $query->bindParam(':user_profile', $user_profile);
+            return $query->execute();
+        }catch (PDOException $e){
+            return false;
+        }
+    }
    
 
     
