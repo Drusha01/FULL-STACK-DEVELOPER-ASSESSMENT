@@ -79,7 +79,6 @@ if(isset($_SESSION['user_id'])){
         }
     }
 
-    echo 'nice';
     
     if($profile_pic){
         // update data in database

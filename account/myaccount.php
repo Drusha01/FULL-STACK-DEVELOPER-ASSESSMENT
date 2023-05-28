@@ -1,6 +1,7 @@
 
 
 <?php 
+    $pageTitle = 'Profile';
     session_start();
     if(isset($_SESSION['user_id'])){
         // header('location:account/myaccount.php');
@@ -145,7 +146,6 @@ $('#save_photo').click(()=>{
         timeout: 600000,
         success: function ( result ) {
             // parse result
-            console.log(result)
             if(result!=0){
                 user = (JSON.parse(result))
                 $('#user_name').html(user.user_name);
