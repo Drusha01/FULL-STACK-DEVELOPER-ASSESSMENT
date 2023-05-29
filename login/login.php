@@ -16,6 +16,7 @@
               $_SESSION['user_name'] = $user_data['user_name'];
               $_SESSION['user_firstname'] = $user_data['user_firstname'];
               $_SESSION['user_lastname'] = $user_data['user_lastname'];
+              $_SESSION['user_email'] = $user_data['user_email'];
               $_SESSION['user_profile'] = $user_data['user_profile'];
               echo '1';
             }
